@@ -2,7 +2,7 @@
 var username = "Ervin";
 
 // constant to set the greeting message based on the time of the day, reference https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-const determineGreet = hours => document.getElementById("greeting").innerText = `Good ${hours < 12 ? "Morning," : hours < 18 ? "Afternoon," : "Evening,"} ${username}.`;
+const determineGreet = hours => document.getElementById("greeting").innerText = `Good ${hours < 12 ? "morning," : hours < 18 ? "afternoon," : "evening,"} ${username}.`;
 
 // web api to load time based on browser time, reference https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 window.addEventListener('load', (event) => {
@@ -18,9 +18,7 @@ window.addEventListener('load', (event) => {
 });
 
 // sets time above the greeting message
-setInterval(function() {
-  var today = new Date();
-  var time = today.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+function displayTime(time) {
   document.getElementById("time").innerHTML = time;
-}, 1000);
+}
 
