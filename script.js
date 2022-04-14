@@ -6,19 +6,36 @@ const determineGreet = hours => document.getElementById("greeting").innerText = 
 
 // web api to load time based on browser time, reference https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 window.addEventListener('load', (event) => {
-  let today = new Date();
-  let time = today.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   let link = document.getElementsByTagName('a');
   document.body.style.background = "#1e1e2e";
-  document.getElementById("greeting").style.color = "#bf616a";
+  document.getElementById("greeting").style.color = "#f28fad";
   for (i = 0; i < link.length; i++)
     link[i].style.color = "#bbb";
   determineGreet(new Date().getHours());
-  displayTime(time);
 });
 
-// sets time above the greeting message
-function displayTime(time) {
-  document.getElementById("time").innerHTML = time;
-}
+function currentTime() {
+  let date = new Date();
+  let hh = date.getHours();
+  let mm = date.getMinutes();
+  let ss = date.getSeconds();
+  let session = "AM";
 
+  if (hh == 0) {
+    hh = 12;
+  }
+  if (hh > 12) {
+    hh = hh - 12;
+    session = "PM";
+  }
+
+  hh = (hh < 10) ? "0" + hh : hh;
+  mm = (mm < 10) ? "0" + mm : mm;
+  ss = (ss < 10) ? "0" + ss : ss;
+
+  let time = hh + ":" + mm + " " + session;
+
+  document.getElementById("time").innerText = time;
+  setTimeout(function() { currentTime() }, 1000);
+}
+currentTime();
