@@ -7,7 +7,8 @@ const determineGreet = hours => document.getElementById("greeting").innerText = 
 // web api to load time based on browser time, reference https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 window.addEventListener('load', (event) => {
   let link = document.getElementsByTagName('a');
-  document.body.style.background = "#1e1e2e";
+  // document.body.style.background = "#1e1e2e";
+  // document.body.style.background = URL(forrest.png);
   document.getElementById("greeting").style.color = "#f28fad";
   for (i = 0; i < link.length; i++)
     link[i].style.color = "#bbb";

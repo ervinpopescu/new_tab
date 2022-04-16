@@ -1,14 +1,25 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: #1e1e2e;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .info {
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
     line-height: 0.1;
     text-align: center;
-    font-family: 'Comic Neue', monospace;
+    font-family: 'Comic Neue';
 }
 @media all and (max-width: 550px) {
     .info, hr
@@ -35,13 +46,12 @@ body {
 .media, .school, .personal, .social {
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
+    /* padding-top: 15px; */
     padding-left: 50px;
     padding-right: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
 }
 hr {
-    margin-top: 40px;
     color: #dee3de;
     width: 500px;
 }
